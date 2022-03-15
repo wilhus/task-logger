@@ -1,4 +1,11 @@
-import { Stack, Typography, IconButton, Menu, MenuItem } from '@mui/material'
+import {
+    Stack,
+    Typography,
+    IconButton,
+    Menu,
+    MenuItem,
+    Tooltip
+} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react'
 
@@ -19,11 +26,15 @@ export function Nav() {
             justifyContent='space-between'
         >
             <div>
-                <IconButton
-                    onClick={handleClick}
+                <Tooltip
+                    title='Menu'
                 >
-                    <MenuIcon />
-                </IconButton>
+                    <IconButton
+                        onClick={handleClick}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                </Tooltip>
                 <Menu
                     anchorEl={anchorEl}
                     open={open}

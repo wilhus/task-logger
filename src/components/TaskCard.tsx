@@ -27,15 +27,14 @@ export interface TaskCardProps {
 }
 
 export function TaskCard({ task }: TaskCardProps) {
-    console.log(task)
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+    const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
+        setAnchorEl(event.currentTarget)
+    }
     const handleClose = () => {
         setAnchorEl(null);
-    };
+    }
 
     return (
         <Card
@@ -51,11 +50,15 @@ export function TaskCard({ task }: TaskCardProps) {
                 }
                 action={
                     <div>
-                        <IconButton
-                            onClick={handleClick}
+                        <Tooltip
+                            title='Options'
                         >
-                            <MoreVertIcon />
-                        </IconButton>
+                            <IconButton
+                                onClick={handleClick}
+                            >
+                                <MoreVertIcon />
+                            </IconButton>
+                        </Tooltip>
                         <Menu
                             anchorEl={anchorEl}
                             open={open}
@@ -69,25 +72,29 @@ export function TaskCard({ task }: TaskCardProps) {
                     </div>
                 }
                 title='Task'
-                subheader='some title'
+                subheader={task.title}
             />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    some description
+                    {task.description}
                 </Typography>
             </CardContent>
             <CardActions
                 style={{ justifyContent: 'flex-end' }}
             >
                 <Tooltip title="Start">
-                    <IconButton >
-                        <PlayArrowIcon />
-                    </IconButton>
+                    <span>
+                        <IconButton >
+                            <PlayArrowIcon />
+                        </IconButton>
+                    </span>
                 </Tooltip>
                 <Tooltip title="End">
-                    <IconButton disabled>
-                        <StopIcon />
-                    </IconButton>
+                    <span>
+                        <IconButton disabled>
+                            <StopIcon />
+                        </IconButton>
+                    </span>
                 </Tooltip>
             </CardActions>
         </Card>

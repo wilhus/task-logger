@@ -3,21 +3,22 @@
 // import styles from '../styles/Home.module.css'
 import { TaskCard } from '../components/TaskCard'
 import { Nav } from '../components/Nav'
-import { NewTask } from '../containers/NewTask'
+import { NewTask } from '../components/NewTask'
+import { TaskModel } from '../models/task'
 import useSWR from 'swr'
 
 export default function Home() {
 	const fetcher = (url: string) => fetch(url).then((res) => res.json())
-
-	const { data } = useSWR('/api/task/1', fetcher)
+	const { data } = useSWR('/api/tasks', fetcher)
 
 	return (
 		<div>
 			<Nav />
 			<h1>To Do:</h1>
 			<NewTask />
-			<TaskCard task={data} />
-			<TaskCard task={data} />
+			{data?.map((task: TaskModel) => 
+				<TaskCard task={task} key={task.id}/>
+			)}
 		</div>
 	)
 }
