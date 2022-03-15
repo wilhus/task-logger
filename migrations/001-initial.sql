@@ -10,6 +10,7 @@ CREATE TABLE Task (
 );
 
 INSERT INTO Task (title, description, created) VALUES ('Clean apartment', 'I want the apartment to be nice and clean!', datetime());
+INSERT INTO Task (title, description, created) VALUES ('Do dishes', 'I need clean plates.', datetime());
 
 -- Down
 DROP TABLE Task;
