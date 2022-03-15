@@ -8,6 +8,7 @@ import {
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react'
+import dayjs from 'dayjs'
 
 export function Nav() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -56,7 +57,7 @@ export function Nav() {
             <Typography
                 variant="body2"
             >
-                Mon 14 Mar 2022
+                {dayjs().format('ddd D MMM YYYY')}
             </Typography>
         </Stack>
     )
