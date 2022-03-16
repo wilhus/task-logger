@@ -24,9 +24,14 @@ export function Nav() {
         <Stack
             direction='row'
             alignItems='center'
-            justifyContent='space-between'
         >
-            <div>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'flex-start',
+                    width: '100%'
+                }}
+            >
                 <Tooltip
                     title='Menu'
                 >
@@ -50,12 +55,18 @@ export function Nav() {
                 </Menu>
             </div>
             <Typography
-                variant="h3"
+                variant='h3'
+                display='flex'
+                justifyContent='center'
+                width='100%'
             >
                 Task Logger
             </Typography>
             <Typography
-                variant="body2"
+                variant='body2'
+                display='flex'
+                justifyContent='flex-end'
+                width='100%'
             >
                 {dayjs().format('ddd D MMM YYYY')}
             </Typography>
